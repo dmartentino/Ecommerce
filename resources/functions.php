@@ -163,6 +163,28 @@ function login_user(){
 		
 	}
 }
+function send_message(){
+	
+	if(isset($_POST['submit'])){
+		
+		$to="support@gmail.com";
+		$from_name = $_POST['name'];
+		$email = $_POST['email'];
+		$subject = $_POST['subject'];
+		$message = $_POST['message'];
+		$headers = "From: {$from_name} {$email}";
+		//ini_set("SMTP", "gmail.com");
+		//ini_set("sendMail_from", "$from_name");
+		$result = mail($to, $subject, $message, $headers);
+		
+		if(!$result){
+			set_message("Something went wrong. Sorry we could not deliver your message");
+		}
+		else{
+			set_message("Your message was successfully sent.");
+		}
+	}
+}
 function get_categories(){
 	$query=query("SELECT * FROM categories");
 	confirm($query);
