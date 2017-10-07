@@ -1,5 +1,19 @@
 <?php
 //helper functions
+function set_message($msg){
+	if(!empty($msg)){
+		$_SESSION['message'] = $msg;
+	}
+	else{
+		$msg = "";
+	}
+}
+function display_message(){
+	if(isset($_SESSION['message'])){
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
+}
 function redirect($location){
 	header("Location: $location");
 }
@@ -129,6 +143,25 @@ DELIMITER;
 		
 	}
 	
+}
+function login_user(){
+	if(isset($_POST['submit'])){
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		
+		$query=query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
+		confirm($query);
+		//if username and password is not found in the database then redirect to the login page
+		if(mysqli_num_rows($query)== 0){
+			set_message("Invalid password or username");
+			redirect("login.php");
+		}
+		else{//if username and password is found in the database then redirect to the admin page
+			//set_message("Welcome to Admin {username}"			);
+			redirect("admin");
+		}
+		
+	}
 }
 function get_categories(){
 	$query=query("SELECT * FROM categories");
