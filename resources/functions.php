@@ -167,7 +167,11 @@ function send_message(){
 	
 	if(isset($_POST['submit'])){
 		
+<<<<<<< HEAD
 		$to="ems.tolentino14@gmail.com";
+=======
+		$to="support@gmail.com";
+>>>>>>> 1577774235dea1a4539881963e5377743790bc78
 		$from_name = $_POST['name'];
 		$email = $_POST['email'];
 		$subject = $_POST['subject'];

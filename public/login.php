@@ -1,4 +1,8 @@
+<<<<<<< HEAD
  <?php require_once("../resources/config.php"); ?>
+=======
+<?php require_once("../resources/config.php"); ?>
+>>>>>>> 1577774235dea1a4539881963e5377743790bc78
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,31 +21,35 @@
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    
 </head>
 
 <body>
 
     <!-- Navigation -->
+<<<<<<< HEAD
   
 	<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
+=======
+    <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
+>>>>>>> 1577774235dea1a4539881963e5377743790bc78
 
     <!-- Page Content -->
     <div class="container">
 
       <header>
             <h1 class="text-center">Login</h1>
+<<<<<<< HEAD
 			<h2 class="text-center bg-danger"><?php display_message(); ?></h2>
         <div class="col-sm-4 col-sm-offset-5">         
             <form class="" action="" method="post" enctype="multipart/form-data">
 				<?php login_user(); ?>
+=======
+            <h2 class="text-center bg-danger"><?php display_message(); ?></h2>
+        <div class="col-sm-4 col-sm-offset-5">         
+            <form class="" action="" method="post" enctype="multipart/form-data">
+                <?php login_user(); ?>
+>>>>>>> 1577774235dea1a4539881963e5377743790bc78
                 <div class="form-group"><label for="">
                     username<input type="text" name="username" class="form-control"></label>
                 </div>
@@ -65,8 +73,12 @@
     <!-- /.container -->
 
     <div class="container">
+<<<<<<< HEAD
 
 
+=======
+        
+>>>>>>> 1577774235dea1a4539881963e5377743790bc78
         <!-- Footer -->
          <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
 
