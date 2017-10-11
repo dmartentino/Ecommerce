@@ -1,3 +1,4 @@
+<?php require_once("../resources/config.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,38 +30,12 @@
 <body>
 
       <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
 
-
+	<?php echo $_SESSION['product_0'];?>
+	
+	
+	
     <!-- Page Content -->
     <div class="container">
 
@@ -68,7 +43,7 @@
 <!-- /.row --> 
 
 <div class="row">
-
+	  <h4 class="text-center bg-danger"><?php display_message(); ?></h4> 
       <h1>Checkout</h1>
 
 <form action="">
@@ -88,7 +63,7 @@
                 <td>$23</td>
                 <td>3</td>
                 <td>2</td>
-              
+				<td><a href="cart.php?remove=1">Remove</a></td>
             </tr>
         </tbody>
     </table>
@@ -128,16 +103,8 @@
  </div><!--Main Content-->
 
 
-           <hr>
-
         <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2030</p>
-                </div>
-            </div>
-        </footer>
+        <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
 
 
     </div>

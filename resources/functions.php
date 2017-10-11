@@ -1,5 +1,19 @@
 <?php
 //helper functions
+function set_message($msg){
+	if(!empty($msg)){
+		$_SESSION['message'] = $msg;
+	}
+	else{
+		$msg = "";
+	}
+}
+function display_message(){
+	if(isset($_SESSION['message'])){
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
+}
 function redirect($location){
 	header("Location: $location");
 }
@@ -57,7 +71,7 @@ function get_products(){
 									</p>
 								</div>
 								<div class="buy-btn pull-right">
-								  <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}">Add to Cart</a>
+								  <a class="btn btn-primary" target="_blank" href="cart.php?add={$row['product_id']}">Add to Cart</a>
 								</div>
 							</div>
                         </div>
@@ -129,6 +143,47 @@ DELIMITER;
 		
 	}
 	
+}
+function login_user(){
+	if(isset($_POST['submit'])){
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		
+		$query=query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
+		confirm($query);
+		//if username and password is not found in the database then redirect to the login page
+		if(mysqli_num_rows($query)== 0){
+			set_message("Invalid password or username");
+			redirect("login.php");
+		}
+		else{//if username and password is found in the database then redirect to the admin page
+			//set_message("Welcome to Admin {username}"			);
+			redirect("admin");
+		}
+		
+	}
+}
+function send_message(){
+	
+	if(isset($_POST['submit'])){
+		
+		$to="ems.tolentino14@gmail.com";
+		$from_name = $_POST['name'];
+		$email = $_POST['email'];
+		$subject = $_POST['subject'];
+		$message = $_POST['message'];
+		$headers = "From: {$from_name} {$email}";
+		//ini_set("SMTP", "gmail.com");
+		//ini_set("sendMail_from", "$from_name");
+		$result = mail($to, $subject, $message, $headers);
+		
+		if(!$result){
+			set_message("Something went wrong. Sorry we could not deliver your message");
+		}
+		else{
+			set_message("Your message was successfully sent.");
+		}
+	}
 }
 function get_categories(){
 	$query=query("SELECT * FROM categories");
