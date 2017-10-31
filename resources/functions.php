@@ -1,5 +1,5 @@
 <?php
-//helper functions
+//******************************************HELPER FUNCTIONS***************************************//
 function set_message($msg){
 	if(!empty($msg)){
 		$_SESSION['message'] = $msg;
@@ -20,7 +20,7 @@ function redirect($location){
 
 function query($sql){
 	global $conn;//use global to use a variable inside a function
-	
+
 	return mysqli_query($conn, $sql);
 }
 
@@ -33,9 +33,9 @@ function confirm($result){
 //function to remove unnecessary characters when storing something in a databsase
 function escape_string($string){
 	global $conn;
-	
+
 	return mysqli_real_escape_string($conn, $string);
-}	
+}
 
 function fetch_array($result){
 	return mysqli_fetch_array($result);
@@ -45,11 +45,11 @@ function fetch_array($result){
 function get_products(){
 	$query = query("SELECT * FROM products");
 	confirm($query);
-	
+
 	while($row=fetch_array($query)){
-		
+
 		$product_card = <<<DELIMITER
-			
+
 			<div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
 							<a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="" style="width:261px; height:125px;"></a>
@@ -76,9 +76,9 @@ function get_products(){
 							</div>
                         </div>
                     </div>
-					
+
 DELIMITER;
-		
+
 		echo $product_card;
 	}
 }
@@ -86,9 +86,9 @@ function show_product_in_category(){
 	$query = query("SELECT * FROM products WHERE product_categery_id = ".escape_string($_GET['id'])." ");
 	confirm($query);
 	while($row=fetch_array($query)){
-		
+
 		$category_product= <<<DELIMITER
-		
+
 		<div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
 					<a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="" style="width:261px; height:125px;"></a>
@@ -105,21 +105,21 @@ function show_product_in_category(){
 					</div>
                 </div>
             </div>
-		
+
 DELIMITER;
-	
+
 	echo $category_product;
-		
+
 	}
-	
+
 }
 function show_product_in_shop(){
 	$query = query("SELECT * FROM products");
 	confirm($query);
 	while($row=fetch_array($query)){
-		
+
 		$category_product= <<<DELIMITER
-		
+
 		<div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
 					<a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="" style="width:261px; height:125px;"></a>
@@ -136,19 +136,19 @@ function show_product_in_shop(){
 					</div>
                 </div>
             </div>
-		
+
 DELIMITER;
-	
+
 	echo $category_product;
-		
+
 	}
-	
+
 }
 function login_user(){
 	if(isset($_POST['submit'])){
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-		
+
 		$query=query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
 		confirm($query);
 		//if username and password is not found in the database then redirect to the login page
@@ -160,45 +160,45 @@ function login_user(){
 			//set_message("Welcome to Admin {username}"			);
 			redirect("admin");
 		}
-		
+
 	}
 }
+/*
 function send_message(){
-	
 	if(isset($_POST['submit'])){
-		
-<<<<<<< HEAD
-		$to="ems.tolentino14@gmail.com";
-=======
-		$to="support@gmail.com";
->>>>>>> 1577774235dea1a4539881963e5377743790bc78
+		$to = "donnamarie.tolentino@yahoo.com";
 		$from_name = $_POST['name'];
 		$email = $_POST['email'];
 		$subject = $_POST['subject'];
 		$message = $_POST['message'];
+
 		$headers = "From: {$from_name} {$email}";
-		//ini_set("SMTP", "gmail.com");
-		//ini_set("sendMail_from", "$from_name");
+
+		ini_set("SMTP","ssl://smtp.gmail.com");
+    ini_set("smtp_port","587");
 		$result = mail($to, $subject, $message, $headers);
-		
+
+
 		if(!$result){
-			set_message("Something went wrong. Sorry we could not deliver your message");
+			set_message("Sorry we could not send your message");
 		}
 		else{
 			set_message("Your message was successfully sent.");
 		}
 	}
-}
+
+
+}*/
 function get_categories(){
 	$query=query("SELECT * FROM categories");
 	confirm($query);
-	
+
 	while($row=fetch_array($query)){
-		
+
 		$category_links = <<<DELIMITER
 
 		<a href="category.php?id={$row['cat_id']}	" class="list-group-item">{$row['cat_title']}</a>
-	
+
 DELIMITER;
 	echo $category_links;
 	}

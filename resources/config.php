@@ -1,6 +1,6 @@
 <?php
 
-//ob_start();
+ob_start();
 
 session_start();
 //session_destroy();
@@ -23,6 +23,6 @@ $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
 
 require_once("functions.php"); //includes functions.php anywhere this file is being included
-
+require_once("cart.php");
 
 ?>

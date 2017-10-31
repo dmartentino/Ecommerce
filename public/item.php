@@ -42,12 +42,12 @@
 		  <?php
 			$query = query("SELECT * FROM products WHERE product_id = ".escape_string($_GET['id'])." ");
 			confirm($query);
-			
-			while($row=fetch_array($query)):
-				
 
-			
-		  
+			while($row=fetch_array($query)):
+
+
+
+
 		  ?>
 
 <div class="col-md-9">
@@ -64,7 +64,7 @@
     <div class="col-md-5">
 
         <div class="thumbnail">
-         
+
 
     <div class="caption-full">
         <h4><a href="#"><?php echo $row['product_title']; ?></a> </h4>
@@ -72,7 +72,7 @@
         <h4 class=""><?php echo $row['product_price']; ?></h4>
 
     <div class="ratings">
-     
+
         <p>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
@@ -82,10 +82,10 @@
             4.0 stars
         </p>
     </div>
-     <div>     
+     <div>
         <?php echo $row['short_desc'];?>
 	</div>
-   
+
     <form action="">
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="ADD TO CART">
@@ -93,7 +93,7 @@
     </form>
 
     </div>
- 
+
 </div>
 
 </div>
@@ -123,7 +123,7 @@
     <div role="tabpanel" class="tab-pane active" id="home">
 
 	<p><?php echo $row['product_description'];?>/p>
-          
+
     </div>
     <div role="tabpanel" class="tab-pane" id="profile">
 
@@ -201,7 +201,7 @@
         </div>
 
             <br>
-            
+
              <div class="form-group">
              <textarea name="" id="" cols="60" rows="10" class="form-control"></textarea>
             </div>

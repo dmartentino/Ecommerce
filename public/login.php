@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
  <?php require_once("../resources/config.php"); ?>
-=======
+
 <?php require_once("../resources/config.php"); ?>
->>>>>>> 1577774235dea1a4539881963e5377743790bc78
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,37 +21,31 @@
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
 
     <!-- Navigation -->
-<<<<<<< HEAD
-  
+
+
 	<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
-=======
-    <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
->>>>>>> 1577774235dea1a4539881963e5377743790bc78
+
 
     <!-- Page Content -->
     <div class="container">
 
       <header>
             <h1 class="text-center">Login</h1>
-<<<<<<< HEAD
-			<h2 class="text-center bg-danger"><?php display_message(); ?></h2>
-        <div class="col-sm-4 col-sm-offset-5">         
-            <form class="" action="" method="post" enctype="multipart/form-data">
-				<?php login_user(); ?>
-=======
+
+			
             <h2 class="text-center bg-danger"><?php display_message(); ?></h2>
-        <div class="col-sm-4 col-sm-offset-5">         
+        <div class="col-sm-4 col-sm-offset-5">
             <form class="" action="" method="post" enctype="multipart/form-data">
                 <?php login_user(); ?>
->>>>>>> 1577774235dea1a4539881963e5377743790bc78
+
                 <div class="form-group"><label for="">
-                    username<input type="text" name="username" class="form-control"></label>
+                    Username<input type="text" name="username" class="form-control"></label>
                 </div>
                  <div class="form-group"><label for="password">
                     Password<input type="text" name="password" class="form-control"></label>
@@ -61,7 +55,7 @@
                   <input type="submit" name="submit" class="btn btn-primary" >
                 </div>
             </form>
-        </div>  
+        </div>
 
 
     </header>
@@ -73,12 +67,10 @@
     <!-- /.container -->
 
     <div class="container">
-<<<<<<< HEAD
 
 
-=======
-        
->>>>>>> 1577774235dea1a4539881963e5377743790bc78
+
+
         <!-- Footer -->
          <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
 
