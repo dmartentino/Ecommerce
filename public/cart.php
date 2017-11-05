@@ -43,6 +43,10 @@
 function cart(){
   $total = 0;
 	$item_quantity = 0;
+	$item_name=0;
+	$item_number=1;
+	$amount=1;
+	$quantity=1;
 	foreach ($_SESSION as $name => $value){
     if($value > 0){
      if (substr($name, 0, 8) == "product_"){
@@ -65,9 +69,19 @@ while($row=fetch_array($query)){
 		 <td><a class="btn btn-danger"href="cart.php?delete={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
  </tr>
 
+  <input type="hidden" name="item_name_{$item_name}" value="{$row['product_title']}">
+  <input type="hidden" name="item_number_{$item_number}" value="{$row['product_id']}">
+  <input type="hidden" name="amount_{$amount}" value="{$row['product_price']}">
+	<input type="hidden" name="quantity_{$quantity}" value="{$value}">
+
 DELIMITER;
 
 echo $product;
+
+$item_name++;
+$item_number++;
+$amount++;
+$quantity++;
 			 }
 $total += $sub;
 $_SESSION['item_total'] = $total;
