@@ -39,7 +39,16 @@
 		redirect("checkout.php");
 	}
 
-
+function show_buy_button(){
+	if(isset($_SESSION['item_quantity'])){
+	$buy_button= <<<DELIMITER
+	<input type="image" name="upload"
+	src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+	alt="PayPal - The safer, easier way to pay online">
+DELIMITER;
+}
+return $buy_button;
+}
 function cart(){
   $total = 0;
 	$item_quantity = 0;
