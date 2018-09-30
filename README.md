@@ -1,6 +1,13 @@
-# Ecommerce Website Project
+# Ecommerce 
 
-This is a personal project that involves the use of modern techniques in PHP. Frontend uses HTML, CSS, Bootstrap, Javascript, and jQuery.
+This is a generic ecommerce website. It uses PHP and Javascript.
+
+# Features
+ * user 
+ * category
+ * product page
+ * cart
+ * payment
 
 
 
